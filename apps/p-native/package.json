@@ -1,0 +1,14 @@
+{
+  "name": "p-native",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@coveo/atomic-lit": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "6.0.2"
+  }
+}

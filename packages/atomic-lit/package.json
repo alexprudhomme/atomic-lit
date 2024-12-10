@@ -1,0 +1,17 @@
+{
+  "name": "@coveo/atomic-lit",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "lit": "3.2.1"
+  },
+  "devDependencies": {
+    "typescript": "5.7.2"
+  }
+}
