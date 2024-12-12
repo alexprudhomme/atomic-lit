@@ -1,3 +1,4 @@
 packages:
   - "apps/*"
   - "packages/*"
+  - "packages/atomic-lit-angular/projects/atomic-lit-angular"

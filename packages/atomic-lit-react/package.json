@@ -6,7 +6,7 @@
     ".": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsx ./scripts/generate.ts && tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "@coveo/atomic-lit": "workspace:*",

@@ -16,6 +16,8 @@ export const ${componentName} = createComponent({
 });
 `;
 
+//TODO: redo so it regenerates the whole file, also I can know what exports are components are they all extend LitElement.
+
 (async () => {
   try {
     // Dynamically import @coveo/atomic-lit to get its exports
