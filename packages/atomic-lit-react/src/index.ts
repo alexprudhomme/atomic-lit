@@ -1,17 +1,20 @@
-import { MyButton as MyButtonNative } from "@coveo/atomic-lit";
+
 import { createComponent } from "@lit/react";
 import React from "react";
 
-export const MyButton = createComponent({
-  tagName: "my-button",
-  elementClass: MyButtonNative,
+import { AtomicResultList as AtomicResultListNative } from "@coveo/atomic-lit";
+
+export const AtomicResultList = createComponent({
+  tagName: "atomicresultlist",
+  elementClass: AtomicResultListNative,
   react: React,
 });
 
-import { MyCard as MyCardNative } from "@coveo/atomic-lit";
 
-export const MyCard = createComponent({
-  tagName: "my-card",
-  elementClass: MyCardNative,
+import { AtomicSearchInterface as AtomicSearchInterfaceNative } from "@coveo/atomic-lit";
+
+export const AtomicSearchInterface = createComponent({
+  tagName: "atomicsearchinterface",
+  elementClass: AtomicSearchInterfaceNative,
   react: React,
 });

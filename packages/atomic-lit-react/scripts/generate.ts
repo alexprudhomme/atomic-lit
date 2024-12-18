@@ -16,8 +16,7 @@ export const ${componentName} = createComponent({
 });
 `;
 
-//TODO: redo so it regenerates the whole file, also I can know what exports are components are they all extend LitElement.
-
+// Regenerate the entire file content
 (async () => {
   try {
     // Dynamically import @coveo/atomic-lit to get its exports
@@ -28,30 +27,27 @@ export const ${componentName} = createComponent({
     const componentExports = exports.filter((name) => /^[A-Z]/.test(name));
 
     console.log(componentExports);
-    // Read the existing file content
+
+    // Start with an empty file content to regenerate it completely
     let fileContent = "";
-    if (fs.existsSync(componentTsPath)) {
-      fileContent = fs.readFileSync(componentTsPath, "utf-8");
-    }
+
+    // Add the two import statements at the top
+    fileContent += `
+import { createComponent } from "@lit/react";
+import React from "react";
+`;
 
     // Generate the new exports
     const newExports = componentExports
-      .map((componentName) => {
-        // Check if the component is already in the file
-        if (fileContent.includes(`export const ${componentName} =`)) {
-          return null; // Skip if it already exists
-        }
-        return generateComponentExport(componentName);
-      })
-      .filter(Boolean) // Remove nulls
+      .map((componentName) => generateComponentExport(componentName))
       .join("\n");
 
-    // Append the new exports to the file
-    const updatedContent = fileContent + newExports;
+    // Set the new content for the file (overwriting it completely)
+    fileContent += newExports;
 
     // Write back to the file
-    fs.writeFileSync(componentTsPath, updatedContent, "utf-8");
-    console.log("component.ts file updated successfully.");
+    fs.writeFileSync(componentTsPath, fileContent, "utf-8");
+    console.log("component.ts file regenerated successfully.");
   } catch (error) {
     console.error("Error generating component exports:", error);
   }
