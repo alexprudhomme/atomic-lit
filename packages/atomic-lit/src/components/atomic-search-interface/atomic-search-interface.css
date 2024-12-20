@@ -1,0 +1,7 @@
+:host {
+  height: inherit;
+  width: inherit;
+  & > slot {
+    height: inherit;
+  }
+}

@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import {
   buildSearchEngine,
@@ -7,9 +7,20 @@ import {
   SearchEngineConfiguration,
 } from "@coveo/headless";
 import i18next, { i18n } from "i18next";
+import { TailwindElement } from "../../utils/tailwind.element.js";
+import customStyles from "./atomic-search-interface.css?inline";
 
 @customElement("atomic-search-interface")
-export class AtomicSearchInterface extends LitElement {
+export class AtomicSearchInterface extends TailwindElement {
+  static get styles() {
+    return [
+      ...super.styles,
+      css`
+        ${unsafeCSS(customStyles)}
+      `,
+    ];
+  }
+
   /**
    * A list of non-default fields to include in the query results.
    *
@@ -171,6 +182,12 @@ export class AtomicSearchInterface extends LitElement {
     // window.removeEventListener("hashchange", this.onHashChange);
   }
 
+  get bindings() {
+    return {
+      engine: this.engine,
+    };
+  }
+
   initialize(options: SearchEngineConfiguration) {
     this.engine = buildSearchEngine({ configuration: options });
   }
@@ -180,6 +197,6 @@ export class AtomicSearchInterface extends LitElement {
   }
 
   override render() {
-    return html`<slot>Atomic-search-interface</slot>`;
+    return html`<div class=" font-bold p-4 rounded m-4"">Atomic-search-interface</div>`;
   }
 }

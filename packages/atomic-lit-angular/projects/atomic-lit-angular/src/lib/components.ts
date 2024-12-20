@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 
 import {
-  MyButton as MyButtonNative,
-  MyCard as MyCardNative,
+  AtomicSearchInterface as MyButtonNative,
+  AtomicResultList as MyCardNative,
 } from '@coveo/atomic-lit';
 
 import { ProxyCmp } from './utils';

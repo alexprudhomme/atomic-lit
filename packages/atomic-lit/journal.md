@@ -10,6 +10,8 @@ We redefine the Stencil render function to render an error in interface-common.t
 
 We will have to create our own solution. Source code is here https://github.com/ionic-team/stencil-store. It is really small, we could just implement that ourselves.
 
+lit store does not really depend on stencil. There is an additional feature that we don't really use. We could rewrite it or replace it with something else. But to replace it we ned to make sure w dont use the feature. So make sure everything that is getting from the store is also putting it as a state if necessary.
+
 ## No componentWillLoad
 
 What is the alternative to this in lit ? Maybe in the constructor ?

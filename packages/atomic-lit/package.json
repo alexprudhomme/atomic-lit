@@ -6,8 +6,8 @@
     ".": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch"
+    "build": "vite build",
+    "dev": "vite build --watch"
   },
   "dependencies": {
     "lit": "3.2.1",
@@ -15,6 +15,11 @@
     "i18next": "23.16.8"
   },
   "devDependencies": {
-    "typescript": "5.7.2"
+    "typescript": "5.7.2",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.16",
+    "vite": "6.0.3",
+    "vite-plugin-dts": "4.3.0"
   }
 }
